@@ -27,31 +27,4 @@ which means that you actually get the full power of web technology, running insi
 1. Visit [dashboard.astro.codes](https://dashboard.astro.codes)
 2. Create the experience / click publish -- you're done!
 
-
-
-
-<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAZTszT9fG-r4EwoDuSJRfPibKzp8DR8g4",
-    authDomain: "mosaico-ar.firebaseapp.com",
-    databaseURL: "https://mosaico-ar.firebaseio.com",
-    projectId: "mosaico-ar",
-    storageBucket: "mosaico-ar.appspot.com",
-    messagingSenderId: "909935930793"
-  };
-  firebase.initializeApp(config);
-</script>
-
-
-
-
-
-
-
-
-
-
-
 <!-- end -->
