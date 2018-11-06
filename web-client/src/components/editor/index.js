@@ -12,6 +12,7 @@ import firebase from '../../components/firebase';
 import 'brace/mode/javascript';
 import 'brace/theme/tomorrow';
 
+// This is the code that will appear in the editor whenever a window is loaded
 const defaultValue = `// This code will add a pink cube to the scene, one metre in front of the origin.
 // You can add or update this code as you wish.
 
@@ -33,6 +34,8 @@ function createNode() {
 
   var position = Mosaico.float3(0, 0, -1)
   node.updatePosition(position)
+
+  return node
 }
 
 
@@ -53,78 +56,59 @@ class Editor extends React.Component {
     });
   }
 
-  onChange(newValue) {
-    // console.log('change', newValue);
-  }
-
   _token() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
   };
 
+  // This function is 'called' from inside the Button component when it is clicked
+  // It generates a random token that we can use to identify this script, then pushes
+  // the script to the database as a string.
   publishCallback() {
     const text = this.refs.astroEditor.editor.getValue()
-
-    let token = this._token()
-
-    let data = {
+    const token = this._token()
+    const data = {
       token: token,
       value: text
     }
 
-    let key = firebase.database().ref().child('scripts').push().key;
-    firebase.database().ref().child('scripts').child(key).set(data);
-    firebase.database().ref().child('tokens').child(token).set(key);
+    const _ = firebase.database().ref().child('scripts').push(data)
+
+    // const key = firebase.database().ref().child('scripts').push().key;
+    // firebase.database().ref().child('scripts').child(key).set(data);
   }
 
   constructor(props) {
     super(props);
     this.state = {
       value: defaultValue,
-      theme: 'github',
+      theme: 'tomorrow',
       mode: 'javascript'
     };
 
     this.setTheme = this.setTheme.bind(this);
     this.setMode = this.setMode.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.publishCallback = this.publishCallback.bind(this);
     this._token = this._token.bind(this);
   }
 
   render() {
-    return ( <
-      div style = {
-        {
-          zIndex: '-1'
-        }
-      } >
-      <
-      AceEditor mode = {
-        this.state.mode
-      }
-      theme = 'tomorrow'
-      onChange = {
-        this.onChange
-      }
-      value = {
-        this.state.value
-      }
-      name = "astro-editor"
-      width = {
-        '100%'
-      }
-      height = {
-        '100vh'
-      }
-      ref = "astroEditor" /
-      >
-      <
-      Button value = 'Publish'
-      publishCallback = {
-        this.publishCallback
-      }
-      /> <
-      /div>
+    return (
+      <div>
+        <AceEditor
+          mode = { this.state.mode }
+          theme = { this.state.theme }
+          value = { this.state.value }
+          name = "astro-editor"
+          width = { '100%' }
+          height = { '100vh' }
+          ref = "astroEditor"
+        />
+        <
+        Button
+          value = 'Publish'
+          publishCallback = { this.publishCallback }
+        />
+      </div>
     );
   }
 }

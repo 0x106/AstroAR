@@ -2,21 +2,25 @@
 // components/button
 // Jordan Campbell
 // November 2018
+
 import React from 'react';
 
 class Button extends React.Component {
 
   constructor (props) {
     super(props);
-    this.onclick = this.onclick.bind(this);
-  }
-
-  onclick(element) {
-    console.log('click');
   }
 
   render() {
     return (
+
+      // When this button is clicked we trigger a callback on the parent element.
+      // Add the style inline since this is only a very simple demo, otherwise
+      // I would consider this very bad practice since buttons are likely to take
+      // on a number of styles.
+      // Whenever possible, I always do things the easy way to begin with as it
+      // is always easier to change small pieces, rather than building entirely
+      // from scratch.
       <button onClick={this.props.publishCallback} style={
         {
           position: 'absolute',
