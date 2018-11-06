@@ -22,9 +22,16 @@ engine how to build and run the 3D scene. With this mechanism you can add any ty
 you like, which makes it immensely powerful. In theory you can even pull in any Javascript you like,
 which means that you actually get the full power of web technology, running inside a native Swift application.
 
+Note that small portions of this work have been developed by [Alberto](https://github.com/snowzurfer).
+This repo is a subset of prior work we did together, however I've attempted to only extract the code that
+I wrote.
+
 **Creating Experiences**
 
 1. Visit [dashboard.astro.codes](https://dashboard.astro.codes)
 2. Create the experience / click publish -- you're done!
+
+Note that this project is a demo of what is possible mixing Javascript and Swift, and is therefore only minimally functional.
+It's not intended to actually be used to create experiences outside of small tests.
 
 <!-- end -->
