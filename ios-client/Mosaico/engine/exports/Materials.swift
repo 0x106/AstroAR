@@ -17,7 +17,8 @@ import JavaScriptCore
 // in js, then print it out - it gives you an object
 // of type UIColorSomethingOrRather - i.e. the native
 // type. All the other subclassed objects return the
-// local type. 
+// local type.
+// This class is basically just a wrapper.
 class Colour: NSObject, ColorProtocol {
   
   var colour: UIColor

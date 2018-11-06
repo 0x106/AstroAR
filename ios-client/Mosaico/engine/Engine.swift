@@ -100,7 +100,7 @@ class Engine: NSObject {
       
     } else {
       if let tapCb = self.screenTapCallback {
-        let tapHandler = TapHandler(touchPos: pt, view: self.view)
+        let tapHandler = TapHandler(touchPosition: pt, view: self.view)
         jsQueue.async {
           tapCb.call(withArguments: [tapHandler])
         }
@@ -164,12 +164,6 @@ class Engine: NSObject {
     self.scene.runColliderDetector()
   }
   
-//  func reloadScript(key: String, callback: @escaping (URL?) -> ()) {
-//    self.downloadScript(key: key) { url in
-//      callback(url)
-//    }
-//  }
-  
   // -----------------
   //     Hit Tests
   // -----------------
@@ -213,20 +207,10 @@ class Engine: NSObject {
 extension Engine {
   
   func runScript(script: String, callback cb: ((_ err: Error?) -> Void)? = nil) {
-    do {
-      
-      self.scene.removeSceneContent()
-
-      jsQueue.async {
-        self.context.evaluateScript(script)
-        if let cb = cb { cb(nil) }
-      }
-    }
-    catch {
-      log.error(error.localizedDescription)
-      if let cb = cb {
-        cb(error)
-      }
+    self.scene.removeSceneContent()
+    jsQueue.async {
+      self.context.evaluateScript(script)
+      if let cb = cb { cb(nil) }
     }
   }
   
@@ -277,9 +261,6 @@ extension Engine {
   }
 }
 
-// These functions will be run on the separate thread for the JS context, as
-// they are called from the JS context itself, which in turn is run in the
-// separate thread.
 extension Engine: MosaicoProtocol {
   /// Create a new Node object.
   func node() -> Node {

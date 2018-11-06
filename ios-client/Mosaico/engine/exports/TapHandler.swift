@@ -2,7 +2,7 @@
 //  TapHandler.swift
 //  Mosaico
 //
-//  Created by Alberto Taiuti on 10/10/2018.
+//  Created by Jordan Campbell on 10/10/2018.
 //  Copyright © 2018 Mosaico. All rights reserved.
 //
 
@@ -11,46 +11,43 @@ import ARKit
 import JavaScriptCore
 
 @objc protocol TapHandlerProtocol: JSExport {
-  func getTouchPos() -> Float2
+  func getTouchPosition() -> Float2
   func getNode() -> Node?
-//  func getARPoint() -> Node?
 }
 
 class TapHandler: NSObject, TapHandlerProtocol {
   
-  private let touchPos: CGPoint
+  private let touchPosition: CGPoint
   private let sceneView: ARSCNView
   
-  init(touchPos: CGPoint, view: ARSCNView) {
-    self.touchPos = touchPos
+  init(touchPosition: CGPoint, view: ARSCNView) {
+    self.touchPosition = touchPosition
     self.sceneView = view
     
     super.init()
   }
   
-  func getTouchPos() -> Float2 {
-    return Float2(pt: touchPos)
+  func getTouchPosition() -> Float2 {
+    return Float2(pt: touchPosition)
   }
   
   func getNode() -> Node? {
-    let touchPos = getTouchPos().toCGPoint()
+    let touchPosition = getTouchPosition().toCGPoint()
     
-    let nodeHitTestResult = self.sceneView.hitTest(touchPos, options: nil)
+    let nodeHitTestResult = self.sceneView.hitTest(touchPosition, options: nil)
     
     if let node = nodeHitTestResult.first {
-      let jsNode = node.node as! Node // We assume that any node added to the scene
-                                 // is a Node type
-      return jsNode
+      if let jsNode = node.node as? Node {
+        return jsNode
+      }
+      
+      log.debug("Could not retrieve js node for hit test")
+      return nil
     }
     else {
-      log.debug("Returning nil in getNode()")
+      log.debug("Could not retrieve js node for hit test")
       return nil
     }
   }
-//
-//  func getARPoint() -> Node? {
-//    <#code#>
-//  }
-//
-  
+
 }

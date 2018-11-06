@@ -6,11 +6,14 @@
 //  Copyright © 2018 Mosaico. All rights reserved.
 //
 
+// This was a fun little library I made that shows log messages in AR, so that you can
+// debug AR apps without having to look between the app and XCode.
+
 import ARKit
 
 class ARLogger: SCNNode {
   
-  var logs: [VirtualLabel] = []
+  private var logs: [VirtualLabel] = []
   
   override init() {
     super.init()

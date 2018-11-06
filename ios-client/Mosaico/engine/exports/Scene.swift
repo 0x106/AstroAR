@@ -23,6 +23,10 @@ import Zip
 
 class Scene: SCNScene, SceneProtocol {
   
+  // We use the sceneContent variable (rather than the default rootNode) so that
+  // we can maintain separation between the nodes added to the scene from JS, and
+  // any nodes added to the scene via the SDK -- for instance nodes from the host
+  // app, or nodes from a user interface.
   var sceneContent = Node()
   
   private lazy var database = {
@@ -49,6 +53,8 @@ class Scene: SCNScene, SceneProtocol {
     }
   }
   
+  // This lets us add a reference to an imported model (and then use it), before it has
+  // actually loaded.
   var importedModelsList = Dictionary<String, Node>()
   
   override init() {
@@ -72,6 +78,7 @@ class Scene: SCNScene, SceneProtocol {
     self.sceneContent.add(node)
   }
   
+  /// remove all the nodes that were added as part of this js script
   func removeSceneContent() {
     for node in self.sceneContent.childNodes {
       node.removeFromParentNode()
@@ -87,6 +94,8 @@ extension Scene {
     let key = UUID().uuidString
     node.importedModelReferenceKey = key
     
+    // self owns the closure, and the closure owns self, so we
+    // need to avoid a reference cycle by using [weak self]
     self.getNode(filename: filename) { [weak self] gltfNode in
       guard let self_ = self else { return }
       
@@ -136,6 +145,7 @@ extension Scene {
     }
   }
   
+  // this is commented out because I removed some functionality for the demo
   func requestModelFromStorage(key: String, callback: @escaping (URL) -> () ) {
 //    let filename = "\(key).zip"
 //    let reference = self.storage.child(filename)
@@ -153,7 +163,6 @@ extension Scene {
 //        }
 //      }
 //    }
-    
   }
   
   // this function is *very inefficient* (TM), however in reality it is perfectly
@@ -163,7 +172,6 @@ extension Scene {
   // on the nodes, which may or may not be trivial.
   func runColliderDetector() {
     collisionQueue.async {
-      // for each node see if it's within a threshold of any other node
       for nA in 0 ..< self.sceneContent.children.count {
         for nB in 0 ..< self.sceneContent.children.count {
           if nA != nB {

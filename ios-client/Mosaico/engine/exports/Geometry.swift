@@ -13,10 +13,8 @@ import JavaScriptCore
   func updateMaterial(_ material: Colour)
 }
 
-// OK so we do still have to provide a local implementation
-// for each class (lots of repeating) - however at least this
-// is now just calling the parent function - so the actual
-// implementation is only defined once.
+// It was hard to refactor the following code to be any less repetitive.
+
 class CubeGeometry: SCNBox,  GeometryProtocol {
   override func updateMaterial(_ material: Colour) {
     super.updateMaterial(material)  }

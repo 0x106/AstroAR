@@ -10,7 +10,6 @@ import SceneKit
 import JavaScriptCore
 
 @objc protocol MosaicoProtocol: JSExport {
-  
   func node() -> Node
   func float3(_ x: Float, _ y: Float, _ z: Float) -> Float3
   func float4(_ x: Float, _ y: Float, _ z: Float, _ w: Float) -> Float4

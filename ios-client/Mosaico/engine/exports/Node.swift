@@ -37,6 +37,8 @@ import JavaScriptCore
 
 class Node: SCNNode, NodeProtocol {
   
+  // We can define functions inside our js code that we want to execute whenever this
+  // node collides with any other node.
   private var collisionDetectionCallback: JSValue?
   
   required override init() {
@@ -142,7 +144,7 @@ class Node: SCNNode, NodeProtocol {
   }
   
   private func run(animation: SCNAction, onComplete: JSValue) {
-    var isNull = Engine.instance.isNull(value: onComplete)
+    let isNull = Engine.instance.isNull(value: onComplete)
     if isNull {
       self.runAction(animation)
     } else {
@@ -189,7 +191,7 @@ extension Node {
     SCNTransaction.animationDuration = duration
     self.simdLocalTranslate(by: value.data)
     SCNTransaction.commit()
-    var isNull = Engine.instance.isNull(value: onComplete)
+    let isNull = Engine.instance.isNull(value: onComplete)
     if !isNull {
       SCNTransaction.completionBlock = {
         onComplete.call(withArguments: nil)

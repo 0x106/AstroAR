@@ -36,29 +36,11 @@
                                     <action selector="onScriptsBtnTouchUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="HQr-N9-baB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="04z-FN-7hb" customClass="RoundBlurredButton" customModule="Mosaico" customModuleProvider="target">
-                                <rect key="frame" x="16" y="504" width="92" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="2Cb-uI-GUN"/>
-                                    <constraint firstAttribute="height" constant="44" id="EFM-V7-hfD"/>
-                                </constraints>
-                                <state key="normal" title="Reload"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didSelectRefreshButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="tH4-pP-VU5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="Gwd-ze-WaB" secondAttribute="trailing" constant="16" id="0y6-X3-9WB"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="04z-FN-7hb" secondAttribute="bottom" constant="20" id="9eW-jS-fSg"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
-                            <constraint firstItem="04z-FN-7hb" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="WAb-I3-zuC"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="Gwd-ze-WaB" secondAttribute="bottom" constant="20" id="h4I-Th-H1b"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
