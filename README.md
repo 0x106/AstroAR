@@ -15,7 +15,7 @@ to a server for the appropriate AR content, and then loads the experience. On th
 easy, but how do we achieve this in a native context? We can't inject compiled Swift (to the best
   of my knowledge).
 
-My solution is to build a Javascript wrapper around a native Swift AR API.
+The solution is to build a Javascript wrapper around a native Swift AR API.
 
 To build an AR 'micro::app' you write a small section of Javascript, which instructs the Swift
 engine how to build and run the 3D scene. With this mechanism you can add any type of functionality
