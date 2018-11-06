@@ -38,7 +38,6 @@ function createNode() {
   return node
 }
 
-
 var node = createNode()
 scene.add( node )`;
 
@@ -70,11 +69,7 @@ class Editor extends React.Component {
       token: token,
       value: text
     }
-
     const _ = firebase.database().ref().child('scripts').push(data)
-
-    // const key = firebase.database().ref().child('scripts').push().key;
-    // firebase.database().ref().child('scripts').child(key).set(data);
   }
 
   constructor(props) {

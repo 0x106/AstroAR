@@ -11,4 +11,5 @@ const config = {
   storageBucket: 'mosaico-ar.appspot.com',
   messagingSenderId: '909935930793'
 };
+
 export default firebase.initializeApp(config);
