@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <div>
         <Editor />
-        <div style={{position: 'absolute', right: 40, zIndex: 1000, top: 20}}>
-          <img src={AstroLogo} alt="Astro Logo" width="200"/>
+        <div style={{position: 'absolute', right: 20, zIndex: 1000, top: 20}}>
+          <img src={AstroLogo} alt="Astro Logo" width="140"/>
         </div>
       </div>
     );

@@ -70,6 +70,8 @@ class Editor extends React.Component {
       value: text
     }
     const _ = firebase.database().ref().child('scripts').push(data)
+
+    alert(`Your unique token for this script is: ${token}.\n\n(It's worth writing this down -- this is just for the demo version)`)
   }
 
   constructor(props) {
@@ -89,14 +91,14 @@ class Editor extends React.Component {
   render() {
     return (
       <div>
-        <AceEditor
-          mode = { this.state.mode }
-          theme = { this.state.theme }
-          value = { this.state.value }
-          name = "astro-editor"
-          width = { '100%' }
-          height = { '100vh' }
-          ref = "astroEditor"
+      <AceEditor
+        mode = { this.state.mode }
+        theme = { this.state.theme }
+        value = { this.state.value }
+        name = "astro-editor"
+        width = { '100%' }
+        height = { '100vh' }
+        ref = "astroEditor"
         />
         <
         Button
