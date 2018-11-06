@@ -8,9 +8,6 @@ Check out this project, and from the root dir run:
 2. `yarn install`
 3. `yarn start`
 
-
-#### Main Components
-
 **Editor**
 
 1. Features the actual editor, a simple logo, and a publish button.
