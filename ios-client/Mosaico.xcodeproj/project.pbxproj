@@ -9,11 +9,6 @@
 /* Begin PBXBuildFile section */
 		093E7E742163F35C00C2A885 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E7E732163F35C00C2A885 /* Utils.swift */; };
 		09490E5C2169EABB00159066 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09490E5B2169EABB00159066 /* Assets.xcassets */; };
-		09C4B0A1216D7FDD00493755 /* Float4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B09F216D7FDD00493755 /* Float4.swift */; };
-		09C4B0A2216D7FDD00493755 /* Float4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4B0A0216D7FDD00493755 /* Float4x4.swift */; };
-		09DF2D37216E42580011CEB2 /* TapHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2D36216E42580011CEB2 /* TapHandler.swift */; };
-		09DF2D39216E5A310011CEB2 /* Float2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2D38216E5A310011CEB2 /* Float2.swift */; };
-		09DF2D3B216E663F0011CEB2 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2D3A216E663F0011CEB2 /* CGPoint+Extensions.swift */; };
 		09DF2D3F216F8E010011CEB2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DF2D3E216F8E010011CEB2 /* StoreKit.framework */; };
 		A67771139FD21F25BFCF27C7 /* Pods_Mosaico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8BFF73D5196944C0D5DEF6 /* Pods_Mosaico.framework */; };
 		DA0C1A9B21910B6600DA1C91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA0C1A9A21910B6500DA1C91 /* GoogleService-Info.plist */; };
@@ -39,11 +34,6 @@
 /* Begin PBXFileReference section */
 		093E7E732163F35C00C2A885 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		09490E5B2169EABB00159066 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		09C4B09F216D7FDD00493755 /* Float4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float4.swift; sourceTree = "<group>"; };
-		09C4B0A0216D7FDD00493755 /* Float4x4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float4x4.swift; sourceTree = "<group>"; };
-		09DF2D36216E42580011CEB2 /* TapHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapHandler.swift; sourceTree = "<group>"; };
-		09DF2D38216E5A310011CEB2 /* Float2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float2.swift; sourceTree = "<group>"; };
-		09DF2D3A216E663F0011CEB2 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		09DF2D3E216F8E010011CEB2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		18F76FC67F48160EF0A36F31 /* Pods-Mosaico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mosaico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mosaico/Pods-Mosaico.debug.xcconfig"; sourceTree = "<group>"; };
 		3F23F89FA878A9D5A68D3AD3 /* Pods_Flisar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flisar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +84,6 @@
 				DAF88CD3216ED7C70091258E /* ARLogger.swift */,
 				DA33E1A9216319C300C2974B /* exports */,
 				DA33E19E2162EDF400C2974B /* scripts */,
-				09DF2D3A216E663F0011CEB2 /* CGPoint+Extensions.swift */,
 			);
 			path = engine;
 			sourceTree = "<group>";
@@ -170,16 +159,12 @@
 		DA33E1A9216319C300C2974B /* exports */ = {
 			isa = PBXGroup;
 			children = (
-				09C4B09F216D7FDD00493755 /* Float4.swift */,
-				09C4B0A0216D7FDD00493755 /* Float4x4.swift */,
 				DA33E1AA216319DD00C2974B /* Scene.swift */,
 				DA33E1AC216319F600C2974B /* Node.swift */,
 				DAE7F6DE21641ED600FD4A91 /* Mosaico.swift */,
 				DAE7F6E021641EDC00FD4A91 /* Float3.swift */,
 				DAE7F6E22164291800FD4A91 /* Geometry.swift */,
 				DAE7F6E4216437A700FD4A91 /* Materials.swift */,
-				09DF2D36216E42580011CEB2 /* TapHandler.swift */,
-				09DF2D38216E5A310011CEB2 /* Float2.swift */,
 			);
 			path = exports;
 			sourceTree = "<group>";
@@ -338,16 +323,11 @@
 				DA33E1AB216319DD00C2974B /* Scene.swift in Sources */,
 				093E7E742163F35C00C2A885 /* Utils.swift in Sources */,
 				DA33E1AD216319F600C2974B /* Node.swift in Sources */,
-				09C4B0A1216D7FDD00493755 /* Float4.swift in Sources */,
 				DA1C570C2165C79A001DFDC3 /* ScriptVC.swift in Sources */,
 				DA33E1892162EA5A00C2974B /* AppDelegate.swift in Sources */,
-				09DF2D39216E5A310011CEB2 /* Float2.swift in Sources */,
 				DA33E1B32163447300C2974B /* Constants.swift in Sources */,
-				09DF2D3B216E663F0011CEB2 /* CGPoint+Extensions.swift in Sources */,
 				DAE7F6E32164291800FD4A91 /* Geometry.swift in Sources */,
 				DAF88CD4216ED7C70091258E /* ARLogger.swift in Sources */,
-				09DF2D37216E42580011CEB2 /* TapHandler.swift in Sources */,
-				09C4B0A2216D7FDD00493755 /* Float4x4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

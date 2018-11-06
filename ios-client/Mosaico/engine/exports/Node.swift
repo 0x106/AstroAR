@@ -30,7 +30,6 @@ import JavaScriptCore
   var localPosition: Float3 { get }
   var localRotation: Float3 { get }
   var localScale: Float3 { get }
-  var localTransform: Float4x4 { get set }
   
   func setCollisionDetector(_ cb: JSValue)
 }
@@ -82,15 +81,6 @@ class Node: SCNNode, NodeProtocol {
         return nodes
       }
       return []
-    }
-  }
-  
-  var localTransform: Float4x4 {
-    get {
-      return Float4x4(simdTransform)
-    }
-    set {
-      simdTransform = newValue.data
     }
   }
   

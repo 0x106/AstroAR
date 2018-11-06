@@ -71,8 +71,8 @@ class Engine: NSObject {
       self.runScript(scriptPath: sdkScriptPath)
     }
     
-    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
-    self.view.addGestureRecognizer(gestureRecognizer)
+//    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
+//    self.view.addGestureRecognizer(gestureRecognizer)
     //    self.setupLaunchButton()
     //    self.setupLogger()
   }
@@ -89,24 +89,24 @@ class Engine: NSObject {
     return false
   }
   
-  @objc private func handleSingleTap(recogniser: UITapGestureRecognizer) {
-    // Call the callback if any
-    let pt = recogniser.location(in: view)
-    
-    // first check if we tapped on any UI nodes
-    if checkForMenuButtonTap(touchPosition: pt) {
-      
-      self.launchLabel.click()
-      
-    } else {
-      if let tapCb = self.screenTapCallback {
-        let tapHandler = TapHandler(touchPosition: pt, view: self.view)
-        jsQueue.async {
-          tapCb.call(withArguments: [tapHandler])
-        }
-      }
-    }
-  }
+//  @objc private func handleSingleTap(recogniser: UITapGestureRecognizer) {
+//    // Call the callback if any
+//    let pt = recogniser.location(in: view)
+//
+//    // first check if we tapped on any UI nodes
+//    if checkForMenuButtonTap(touchPosition: pt) {
+//
+//      self.launchLabel.click()
+//
+//    } else {
+//      if let tapCb = self.screenTapCallback {
+//        let tapHandler = TapHandler(touchPosition: pt, view: self.view)
+//        jsQueue.async {
+//          tapCb.call(withArguments: [tapHandler])
+//        }
+//      }
+//    }
+//  }
   
   private func setupLaunchButton() {
     self.launchLabel.rootNode.position = SCNVector3Make(0, 0, -1)
@@ -320,14 +320,6 @@ extension Engine: MosaicoProtocol {
   /// Import a glTF model and return it as a Node
   func importModel(_ filename: String) -> Node {
     return self.scene.importModel(filename: filename)
-  }
-  
-  func float4(_ x: Float, _ y: Float, _ z: Float, _ w: Float) -> Float4 {
-    return Float4(x, y, z, w)
-  }
-  
-  func float4x4() -> Float4x4 {
-    return Float4x4(simd_float4x4(1)) // Identity matrix
   }
   
   func setScreenTappedCallback(_ cb: JSValue) {
